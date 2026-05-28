@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Examen2JARB</string>
+    <string name="profile_title">Mi Perfil</string>
+    <string name="profile_name_placeholder">Riverón Badillo José Angel</string>
+    <string name="profile_email_placeholder">correo@ejemplo.com</string>
+    <string name="btn_logout">Cerrar Sesión</string>
+    <string name="profile_image_description">Foto de perfil del usuario</string>
 </resources>
