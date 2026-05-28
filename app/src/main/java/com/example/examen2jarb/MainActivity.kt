@@ -1,5 +1,6 @@
 package com.example.examen2jarb
 
+import android.content.Intent // Importación necesaria para cambiar de pantalla
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -34,8 +35,19 @@ class MainActivity : AppCompatActivity() {
             val username = etUsername.text.toString().trim()
             val password = etPassword.text.toString().trim()
 
+            // Mantenemos la validación de campos vacíos como buena práctica
             if (username.isNotEmpty() && password.isNotEmpty()) {
-                Toast.makeText(this, "¡Bienvenido, $username!", Toast.LENGTH_SHORT).show()
+
+                // 1. Validar la contraseña exacta
+                if (password == "abc123") {
+                    // Si es igual: Iniciar la actividad ProfileActivity
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    // Si NO es igual: Mostrar el mensaje de error con un Toast
+                    Toast.makeText(this, "Contraseña incorrecta.", Toast.LENGTH_SHORT).show()
+                }
+
             } else {
                 Toast.makeText(this, "Por favor, completa todos los campos.", Toast.LENGTH_LONG).show()
             }
