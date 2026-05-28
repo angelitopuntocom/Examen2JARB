@@ -35,16 +35,17 @@ class MainActivity : AppCompatActivity() {
             val username = etUsername.text.toString().trim()
             val password = etPassword.text.toString().trim()
 
-            // Mantenemos la validación de campos vacíos como buena práctica
             if (username.isNotEmpty() && password.isNotEmpty()) {
 
-                // 1. Validar la contraseña exacta
                 if (password == "abc123") {
-                    // Si es igual: Iniciar la actividad ProfileActivity
+                    // Creamos el Intent para ir a ProfileActivity
                     val intent = Intent(this, ProfileActivity::class.java)
+
+                    // PASO NUEVO: Guardamos el nombre de usuario con una "llave" llamada "KEY_USERNAME"
+                    intent.putExtra("KEY_USERNAME", username)
+
                     startActivity(intent)
                 } else {
-                    // Si NO es igual: Mostrar el mensaje de error con un Toast
                     Toast.makeText(this, "Contraseña incorrecta.", Toast.LENGTH_SHORT).show()
                 }
 
